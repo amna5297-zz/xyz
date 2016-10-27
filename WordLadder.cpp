@@ -59,6 +59,8 @@ bool Dictionary :: searchDictionary (char temp[]){
 		flag = false;
 	}
 	else{
+		node_ptr = root;
+		cout<<node_ptr->next->word<<endl;
 		while(node_ptr!=NULL){
 			if(node_ptr->word == w){
 				flag = true;
@@ -125,7 +127,7 @@ void Dictionary :: insertion( char word_array1[]){
 		node_ptr = root;
 		prev_ptr = node_ptr;
 		//CHECK IF THE ALPHABET EXITS
-		while((node_ptr != NULL) && (flag == true)){			
+		while((node_ptr != NULL ) && (flag == true)){			
 			if(node_ptr->word == newNode->word){
 				//cout<<"Same word found!"<<endl;
 				flag = false;
@@ -290,6 +292,10 @@ public:
 		temp = source;
 
 		int i = 0;
+
+		if( w.searchDictionary(temp) == true ){
+			cout << "Word exists:  "<<endl;
+		}
 
 		while(temp != NULL && temp != destination){
 			if( w.searchDictionary(temp) == true ){
